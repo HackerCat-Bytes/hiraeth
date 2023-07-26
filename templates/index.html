@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hiraeth</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.6/dist/css/ionicons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Spirax&display=swap" rel="stylesheet">
+<style>
+body,h1,h2{font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+p {line-height: 2}
+.bgimg {
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+  filter: brightness(110%);
+}
+.bgimg {background-image: url("{{ url_for('static', filename='images/pinklanturns.jpg') }}");}
+</style>
+</head>
+<body>
+
+<!-- Header / Home-->
+<header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
+  <div class="w3-display-middle w3-text-white w3-center">
+    <h1 class="w3-jumbo" style="font-family: Spirax;">Hiraeth</h1>
+    <h2>You are enough</h2>
+  </div>
+</header>
+
+<!-- Navbar (sticky bottom) -->
+<div class="w3-bottom w3-hide-small">
+  <div class="w3-bar w3-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
+    <a href="#home" style="width:20%" class="w3-bar-item w3-button">Home</a>
+    <a href="#us" style="width:20%" class="w3-bar-item w3-button">About Hiraeth</a>
+    <a href="#team" style="width:20%" class="w3-bar-item w3-button">Team</a>
+    <a href="#feedback" style="width:20%" class="w3-bar-item w3-button w3-hover-black">Feedback</a>
+    <a href="{{ url_for('profile') }}" style="width:20%" class="w3-bar-item w3-button w3-hover-black">Profile</a>
+
+  </div>
+</div>
+
+<!-- Login Code-->
+<div class="wrapper hidden" id="login">
+  <span class="icon-close" id="loginCloseButton">
+    <ion-icon name="close"></ion-icon>
+  </span>
+  <div class="form-box login">
+    <h2>Login</h2>
+    <form action="/login" method="post">
+        <div class="input-box">
+            <span class="icon">
+                <ion-icon name="mail"></ion-icon>
+            </span>
+            <input type="email" name="email" required>
+            <label>Email</label>
+        </div>
+        <div class="input-box">
+            <span class="icon">
+                <ion-icon name="lock-closed"></ion-icon>
+            </span>
+            <input type="password" name="password" required>
+            <label>Password</label>
+        </div>
+        <div class="remember-forgot">
+          <label><input type="checkbox"> Remember me</label>
+          <a href="#">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <div class="login-register">
+          <p>Don't have an account? <a id="goToSignUp" href="#">Register here</a>.</p>
+        </div>
+    </form>
+  </div>
+</div>
+
+<!--Signup Code-->
+<div class="wrapper hidden" id="signUp">
+  <span class="icon-close" id="signUpCloseButton">
+    <ion-icon name="close"></ion-icon>
+  </span>
+  <div class="form-box signup">
+    <h2>SignUp</h2>
+    <form action="/register" method="post">
+    <div class="input-box">
+      <span class="icon">
+        <ion-icon name="person"></ion-icon>
+      </span>
+      <input type="text" name="username" required>
+      <label>Username</label>
+    </div>
+    <div class="input-box">
+      <span class="icon">
+        <ion-icon name="mail"></ion-icon>
+      </span>
+      <input type="email" name="email" required>
+      <label>Email</label>
+    </div>
+    <div class="input-box">
+      <span class="icon">
+        <ion-icon name="lock-closed"></ion-icon>
+      </span>
+      <input type="password" name="password" required>
+      <label>Password</label>
+    </div>
+    <div class="remember-forgot">
+      <label><input type="checkbox"> I agree to the terms & conditions</label>
+    </div>
+    <button type="submit" class="btn">Register</button>
+    <div class="login-register">
+      <p>Already have an account? <a id="goToLogin" href="#">Log in here</a>.</p>
+    </div>
+    </form>
+  </div>
+</div>
+
+<!-- About Hiraeth -->
+<div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min" id="us">
+  <div class="w3-content">
+    <h1 class="w3-center w3-text-grey" style="font-family: Spirax;"><b>About Hiraeth</b></h1>
+    <p class="w3-center"><i>"Welcome to Hiraeth, your digital partner for mental wellness.</i></p>
+    <p class="w3-center"><i>The term 'Hiraeth' originates from the Welsh language, embodying a profound, inexpressible longing for a home that may no longer exist or perhaps never was. It resonates with an intense yearning for a sense of place, familiarity, and connection.</i></p>
+    <p class="w3-center"><i>At Hiraeth, we have reimagined this sentiment in the context of mental health and digital technology. Our web application serves as a reliable compass, guiding users on their personal journey of mental wellness. We understand that stress, anxiety, and depression are not just conditions but experiences, intricately interwoven with the fabric of our lives.</i></p>
+    <p class="w3-center"><i>Hiraeth is designed to assess these experiences, providing users with a comprehensive evaluation of their stress, anxiety, and depression levels. This analysis then forms the basis of tailored suggestions for early intervention and treatment, offering a holistic approach to mental wellness. It allows users to track their progress over time, offering invaluable insights that enable individuals to understand, manage, and ultimately improve their mental health.</i></p>
+    <p class="w3-center"><i>Join us at Hiraeth, a place where every interaction is a step towards understanding oneself better, a step towards a healthier mental state, a step towards finding 'home' within oneself."</i></p><br>
+    <div class="w3-center">
+      <!--Javascript functon calls to open Login/Signup Popup-->
+      <button id="signUpButton" class="w3-button w3-black w3-round w3-padding-large w3-large">Sign Up</button>
+      <button id="loginButton" class="w3-button w3-black w3-round w3-padding-large w3-large">Log In</button>
+    </div>
+  </div>
+</div>
+
+<!-- Background photo -->
+<div class="w3-display-container bgimg2">
+    <div class="w3-display-middle w3-text-white w3-center">
+      <h1 class="w3-jumbo" style="font-family: Spirax;">"Find strength in vulnerability."</h1><br>
+      <h2></h2>
+      <a href="questionnaire.html" class="w3-button w3-round w3-red w3-opacity">Play the game</a>
+      <style>
+          .bgimg2 {
+            min-height: 100%;
+            background-position: center;
+            background-size: cover;
+            background-image: url("{{ url_for('static', filename='images/hoodedblossoms.jpg') }}");
+          }
+          </style>
+    </div>
+  </div>  
+
+<!-- Team Section -->
+<div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min" style="padding:128px 16px" id="team">
+  <h3 class="w3-center">THE TEAM</h3>
+  <p class="w3-center w3-large">The ones who made this possible</p>
+  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+    <!-- First row -->
+    <div class="w3-display-container" style="display: flex; justify-content: center; flex-wrap: wrap;">
+      <!-- Team member 1 -->
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <div class="w3-container">
+            <h3>Harshika Kerkar</h3>
+            <p class="w3-opacity">Role 1</p>
+            <p>Member 1 description.</p>
+            <p>email : shaillykerkar2401@gmail.com</p>
+          </div>
+        </div>
+      </div>
+      <!-- Team member 2 -->
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <div class="w3-container">
+            <h3>Shikhar Singh</h3>
+            <p class="w3-opacity">Role 2</p>
+            <p>Member 2 description.</p>
+            <p>email : </p>
+          </div>
+        </div>
+      </div>
+      <!-- Team member 3 -->
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <div class="w3-container">
+            <h3>Inaya Ahmed</h3>
+            <p class="w3-opacity">Role 3</p>
+            <p>Member 3 description.</p>
+            <p>email : </p>
+          </div>
+        </div>
+      </div>
+      <!-- Team member 4 -->
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <div class="w3-container">
+            <h3>Arpita Priyadarshini Das</h3>
+            <p class="w3-opacity">Role 4</p>
+            <p>Member 4 description.</p>
+            <p>email : </p>
+          </div>
+        </div>
+      </div>
+      <!-- Team member 5 -->
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <div class="w3-container">
+            <h3>Dheeraj Dasari</h3>
+            <p class="w3-opacity">Role 5</p>
+            <p>Member 5 description.</p>
+            <p>email : </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Feedback section -->
+<div class="w3-container w3-padding-64 w3-pale-red w3-center w3-wide" id="feedback">
+  <h1>Give Us Your Feedback!</h1>
+  <p class="w3-large">So we can continue to improve Hiraeth for you</p>
+  <p class="w3-xlarge">
+    <a href="https://forms.gle/No7rejrBGqELjZ4eA" class="w3-button w3-round w3-red w3-opacity w3-hover-opacity-off" style="padding:8px 60px">Feedback</a>
+  </p>
+</div>
+</body>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

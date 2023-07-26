@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profile - Hiraeth</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+<link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.6/dist/css/ionicons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Spirax&display=swap" rel="stylesheet">
+
+<style>
+  body,h1,h2{font-family: "Raleway", sans-serif}
+  body, html {
+    height: 100%;
+    background-color: #f9dee4; /*background color here */
+  }
+  p {line-height: 2}
+  
+  .profile-card {
+    background-color: rgba(244, 215, 223, 0.921);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+  }  
+
+.profile-content {
+  text-align: center;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<!-- Profile Header-->
+<header class="profile-content">
+  <h1 class="w3-jumbo" style="font-family: Spirax;">Your Scores</h1>
+  
+<!-- Scores Section -->
+<div class="profile-card">
+  <h2>{{ user.name }}</h2> <!-- The username will be dynamically replaced here -->
+  <div class="w3-row">
+    <div class="w3-col s3">
+      <div class="w3-card w3-padding">
+        <h3>Depression</h3>
+        <p>Score: {{ depression_score if depression_score != 'Not available' else 'Not yet evaluated' }}</p> <!-- The depression score will be dynamically replaced here -->
+      </div>
+    </div>
+    <div class="w3-col s3">
+      <div class="w3-card w3-padding">
+        <h3>Anxiety</h3>
+        <p>Score: {{ anxiety_score if anxiety_score != 'Not available' else 'Not yet evaluated' }}</p> <!-- The anxiety score will be dynamically replaced here -->
+      </div>
+    </div>
+    <div class="w3-col s3">
+      <div class="w3-card w3-padding">
+        <h3>Stress</h3>
+        <p>Score: {{ stress_score if stress_score != 'Not available' else 'Not yet evaluated' }}</p> <!-- The stress score will be dynamically replaced here -->
+      </div>
+    </div>
+    <div class="w3-col s3">
+      <div class="w3-card w3-padding">
+        <h3>Total</h3>
+        <p>Score: {{ total_score if total_score != 'Not available' else 'Not yet evaluated' }}</p> <!-- The total score will be dynamically replaced here -->
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+<!-- Navbar (sticky bottom) -->
+<div class="w3-bottom w3-hide-small">
+  <div class="w3-bar w3-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
+    <a href="{{ url_for('home') }}" style="width:20%" class="w3-bar-item w3-button">Home</a> <!-- This link takes the user back to the homepage -->
+    <a href="{{url_for('home')}}#us" style="width:20%" class="w3-bar-item w3-button">About Hiraeth</a>
+    <a href="{{url_for('home')}}#team" style="width:20%" class="w3-bar-item w3-button">Team</a>
+    <a href="{{ url_for('home') }}#feedback" style="width:20%" class="w3-bar-item w3-button w3-hover-black">Feedback</a>
+    <a href="#profile" style="width:20%" class="w3-bar-item w3-button w3-hover-black">Profile</a>
+  </div>
+</div>
+</body>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</html>
