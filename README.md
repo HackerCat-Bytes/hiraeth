@@ -4,3 +4,6 @@ Hiraeth follows a simplistic and engaging layout with a very user friendly inter
 
 It has a fully functioning signup and login set up including a feedback section where user's can drop their opinions and views about Hiraeth so we can continue to make Hiraeth better for them.
 This was a Group based research project under the supervision of Incognito Blueprints Research Bootcamp.
+
+The team's problem statement for this bootcamp was,
+"Gamifying Cognitive Behavioural Therapy for Young Users"
